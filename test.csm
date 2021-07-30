@@ -1,0 +1,123 @@
+set wi 0.75
+set hi 1.0
+
+# The alphanumeric.udc file must be copied to $ESP_ROOT/udc if udprim is called
+# like: udprim $$/alphanumeric char $1
+# or, if alphanumeric.udc is in the same directory as this test.cms file, it
+# must be called like: udprim /alphanumeric char $1
+
+udprim $$/alphanumeric char $1
+translate 0 2*hi 0
+
+udprim $$/alphanumeric char $2
+translate wi 2*hi 0
+
+udprim $$/alphanumeric char $3
+translate 2*wi 2*hi 0
+
+udprim $$/alphanumeric char $4
+translate 3*wi 2*hi 0
+
+udprim $$/alphanumeric char $5
+translate 4*wi 2*hi 0
+
+udprim $$/alphanumeric char $6
+translate 0 hi 0
+
+udprim $$/alphanumeric char $7
+translate wi hi 0
+
+udprim $$/alphanumeric char $8
+translate 2*wi hi 0
+
+udprim $$/alphanumeric char $9
+translate 3*wi hi 0
+
+udprim $$/alphanumeric char $0
+translate 4*wi hi 0
+
+udprim $$/alphanumeric char $A
+
+udprim $$/alphanumeric char $B
+
+translate wi 0 0
+udprim $$/alphanumeric char $C
+
+translate 2*wi 0 0
+
+udprim $$/alphanumeric char $D
+translate 3*wi 0 0
+
+udprim $$/alphanumeric char $E
+translate 4*wi 0 0
+
+udprim $$/alphanumeric char $F
+translate 0 -hi 0
+
+udprim $$/alphanumeric char $G
+translate wi -hi 0
+
+udprim $$/alphanumeric char $H
+translate 2*wi -hi 0
+
+udprim $$/alphanumeric char $I
+translate 3*wi -hi 0
+
+udprim $$/alphanumeric char $J
+translate 4*wi -hi 0
+
+udprim $$/alphanumeric char $K
+translate 0.0 -2*hi 0
+
+udprim $$/alphanumeric char $L
+translate wi -2*hi 0
+
+udprim $$/alphanumeric char $M
+translate 2*wi -2*hi 0
+
+udprim $$/alphanumeric char $N
+translate 3*wi -2*hi 0
+
+udprim $$/alphanumeric char $O
+translate 4*wi -2*hi 0
+
+udprim $$/alphanumeric char $P
+translate 0.0 -3*hi 0
+
+udprim $$/alphanumeric char $Q
+translate wi -3*hi 0
+
+udprim $$/alphanumeric char $R
+translate 2*wi -3*hi 0
+
+udprim $$/alphanumeric char $S
+translate 3*wi -3*hi 0
+
+udprim $$/alphanumeric char $T
+translate 4*wi -3*hi 0
+
+udprim $$/alphanumeric char $U
+translate 0.0 -4*hi 0
+
+udprim $$/alphanumeric char $V
+translate wi -4*hi 0
+
+udprim $$/alphanumeric char $W
+translate 2*wi -4*hi 0
+
+udprim $$/alphanumeric char $X
+translate 3*wi -4*hi 0
+
+udprim $$/alphanumeric char $Y
+translate 4*wi -4*hi 0
+
+udprim $$/alphanumeric char $Z
+translate 2*wi -5*hi 0
+
+set period $.
+udprim $$/alphanumeric char period
+translate 2.75*wi -5*hi 0
+
+# This apparently cannot be done.
+#udprim $$/alphanumeric char $',
+#udprim $$/alphanumeric char $'!

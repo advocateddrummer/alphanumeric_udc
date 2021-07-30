@@ -1,0 +1,822 @@
+# alphanumeric
+#   create alphanumeric characters
+# written by Ethan Alan Hereth (ehereth@utk.edu)
+
+# TODO: create lower case letters.
+# TODO: experiment with curved alphanumeric characters.
+
+# target character indicator; valid input characters are 0-9 and A-Z
+interface char in $A
+
+#message !$char^is+val2str(char) ^
+
+# height of character [defaults to 0.75]
+interface h in 0.75
+
+# width of character [defaults to 0.5]
+interface w in 0.5
+
+# 'z' location of target character [defaults to 0.0]
+interface z in 0.0
+
+# half height increment
+set h2 h/2.0
+
+# one-third height increment
+set h3 h/3.0
+
+# one-fourth height increment
+set h4 h/4.0
+
+# one-fifth height increment
+set h5 h/5.0
+
+# half width increment
+set w2 w/2.0
+
+# one-third width increment
+set w3 w/3.0
+
+# one-fourth width increment
+set w4 w/4.0
+
+# one-fifth width increment
+set w5 w/5.0
+
+# A
+ifthen char eq $A
+
+  skbeg 0.0 0.0 z     # A (outer)
+    linseg w3 0.0 z   # 1
+    linseg w2 h3 z    # 2
+    linseg 2*w3 0.0 z # 3
+    linseg w 0.0 z    # 4
+    linseg 2*w3 h z   # 5
+    linseg w3 h z     # 6
+    linseg 0.0 0.0 z  # 7
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w3 h2 z      # A (inner)
+    linseg 2*w3 h2 z # 8
+    linseg w2 3*h4 z # 9
+    linseg w3 h2 z   # 10
+  skend
+
+  subtract
+
+# B
+elseif char eq $B
+
+  skbeg 0.0 0.0 z     # B (outer)
+    linseg 4*w5 0.0 z # 1
+    linseg w h5 z     # 2
+    linseg w 4*h5 z   # 3
+    linseg 4*w5 h z   # 4
+    linseg 0.0 h z    # 5
+    linseg 0.0 0.0 z  # 6
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w4 h5 z        # B (inner 1)
+    linseg 2*w3 h5 z   # 7
+    linseg 2*w3 2*h5 z # 8
+    linseg w4 2*h5 z   # 9
+    linseg w4 h5 z     # 10
+  skend
+
+  subtract
+
+  skbeg w4 3*h5 z      # B (inner 2)
+    linseg 2*w3 3*h5 z # 11
+    linseg 2*w3 4*h5 z # 12
+    linseg w4 4*h5 z   # 13
+    linseg w4 3*h5 z   # 14
+  skend
+
+  subtract
+
+# C
+elseif char eq $C
+
+  skbeg 0.0 0.0 z    # C
+    linseg w 0.0 z   # 1
+    linseg w h5 z    # 2
+    linseg w3 h5 z   # 3
+    linseg w3 4*h5 z # 3
+    linseg w 4*h5 z  # 3
+    linseg w h z     # 3
+    linseg 0.0 h z   # 3
+    linseg 0.0 0.0 z # 4
+  skend
+
+  attribute _color $red
+
+# D
+elseif char eq $D
+
+  skbeg 0.0 0.0 z     # D (outer)
+    linseg 4*w5 0.0 z # 1
+    linseg w h5 z     # 2
+    linseg w 4*h5 z   # 3
+    linseg 4*w5 h z   # 4
+    linseg 0.0 h z    # 5
+    linseg 0.0 0.0 z  # 6
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w4 h5 z        # D (inner)
+    linseg 2*w3 h5 z   # 7
+    linseg 2*w3 4*h5 z # 8
+    linseg w4 4*h5 z   # 9
+    linseg w4 h5 z     # 10
+  skend
+
+  subtract
+
+# E
+elseif char eq $E
+
+  skbeg 0.0 0.0 z      # E
+    linseg w 0.0 z     # 1
+    linseg w h5 z      # 2
+    linseg w3 h5 z     # 3
+    linseg w3 2*h5 z   # 4
+    linseg 2*w3 2*h5 z # 5
+    linseg 2*w3 3*h5 z # 6
+    linseg w3 3*h5 z   # 7
+    linseg w3 4*h5 z   # 8
+    linseg w 4*h5 z    # 9
+    linseg w h z       # 10
+    linseg 0.0 h z     # 11
+    linseg 0.0 0.0 z   # 12
+  skend
+
+  attribute _color $red
+
+# F
+elseif char eq $F
+
+  skbeg 0.0 0.0 z      # F
+    linseg w3 0.0 z    # 1
+    linseg w3 2*h5 z   # 2
+    linseg 2*w3 2*h5 z # 3
+    linseg 2*w3 3*h5 z # 4
+    linseg w3 3*h5 z   # 5
+    linseg w3 4*h5 z   # 6
+    linseg w 4*h5 z    # 7
+    linseg w h z       # 8
+    linseg 0.0 h z     # 9
+    linseg 0.0 0.0 z   # 10
+  skend
+
+  attribute _color $red
+
+# G
+elseif char eq $G
+
+  skbeg 0.0 0.0 z    # G
+    linseg w 0.0 z   # 1
+    linseg w h2 z    # 2
+    linseg 2*w3 h2 z # 3
+    linseg 2*w3 h5 z # 4
+    linseg w3 h5 z   # 5
+    linseg w3 4*h5 z # 6
+    linseg w 4*h5 z  # 7
+    linseg w h z     # 8
+    linseg 0.0 h z   # 9
+    linseg 0.0 0.0 z # 10
+  skend
+
+  attribute _color $red
+
+# H
+elseif char eq $H
+
+  skbeg 0.0 0.0 z      # H
+    linseg w3 0.0 z    # 1
+    linseg w3 2*h5 z   # 2
+    linseg 2*w3 2*h5 z # 3
+    linseg 2*w3 0.0 z  # 4
+    linseg w 0.0 z     # 5
+    linseg w h z       # 6
+    linseg 2*w3 h z    # 7
+    linseg 2*w3 3*h5 z # 8
+    linseg w3 3*h5 z   # 9
+    linseg w3 h z      # 10
+    linseg 0.0 h z     # 11
+    linseg 0.0 0.0 z   # 12
+  skend
+
+  attribute _color $red
+
+# I
+elseif char eq $I
+
+  skbeg 0.0 0.0 z      # I
+    linseg w 0.0 z     # 1
+    linseg w h5 z      # 2
+    linseg 2*w3 h5 z   # 3
+    linseg 2*w3 4*h5 z # 4
+    linseg w 4*h5 z    # 5
+    linseg w h z       # 6
+    linseg 0.0 h z     # 7
+    linseg 0.0 4*h5 z  # 8
+    linseg w3 4*h5 z   # 9
+    linseg w3 h5 z     # 10
+    linseg 0.0 h5 z    # 11
+    linseg 0.0 0.0 z   # 12
+  skend
+
+  attribute _color $red
+
+# J
+elseif char eq $J
+
+  skbeg 0.0 0.0 z      # J
+    linseg 2*w3 0.0 z  # 1
+    linseg 2*w3 4*h5 z # 2
+    linseg w 4*h5 z    # 3
+    linseg w h z       # 4
+    linseg 0.0 h z     # 5
+    linseg 0.0 4*h5 z  # 6
+    linseg w3 4*h5 z   # 7
+    linseg w3 h5 z     # 8
+    linseg 0.0 h5 z    # 9
+    linseg 0.0 0.0 z   # 10
+  skend
+
+  attribute _color $red
+
+# K
+elseif char eq $K
+
+  skbeg 0.0 0.0 z     # K
+    linseg w3 0.0 z   # 1
+    linseg w3 2*h5 z  # 2
+    linseg 2*w3 0.0 z # 3
+    linseg w 0.0 z    # 4
+    linseg 2*w3 h2 z  # 5
+    linseg w h z      # 6
+    linseg 2*w3 h z   # 7
+    linseg w3 3*h5 z  # 8
+    linseg w3 h z     # 9
+    linseg 0.0 h z    # 10
+    linseg 0.0 0.0 z  # 11
+  skend
+
+  attribute _color $red
+
+# L
+elseif char eq $L
+
+  skbeg 0.0 0.0 z    # L
+    linseg w 0.0 z   # 1
+    linseg w h5 z    # 2
+    linseg w3 h5 z   # 3
+    linseg w3 h z    # 4
+    linseg 0.0 h z   # 5
+    linseg 0.0 0.0 z # 6
+  skend
+
+  attribute _color $red
+
+# M
+elseif char eq $M
+
+  skbeg 0.0 0.0 z     # M
+    linseg w3 0.0 z   # 1
+    linseg w3 h3 z    # 2
+    linseg w2 0.0 z   # 3
+    linseg 2*w3 h3 z  # 4
+    linseg 2*w3 0.0 z # 5
+    linseg w 0.0 z    # 6
+    linseg w h z      # 7
+    linseg 2*w3 h z   # 8
+    linseg w2 h2 z    # 9
+    linseg w3 h z     # 10
+    linseg 0.0 h z    # 11
+    linseg 0.0 0.0 z  # 12
+  skend
+
+  attribute _color $red
+
+# N
+elseif char eq $N
+
+  skbeg 0.0 0.0 z     # N
+    linseg w3 0.0 z   # 1
+    linseg w3 h2 z    # 2
+    linseg 2*w3 0.0 z # 3
+    linseg w 0.0 z    # 4
+    linseg w h z      # 5
+    linseg 2*w3 h z   # 6
+    linseg 2*w3 h2 z  # 7
+    linseg w3 h z     # 8
+    linseg 0.0 h z    # 9
+    linseg 0.0 0.0 z  # 10
+  skend
+
+  attribute _color $red
+
+# O
+elseif char eq $O
+
+  skbeg 0.0 0.0 z    # O (outer)
+    linseg w 0.0 z   # 1
+    linseg w h z     # 2
+    linseg 0.0 h z   # 3
+    linseg 0.0 0.0 z # 4
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w4 h4 z        # O (inner)
+    linseg 2*w3 h4 z   # 5
+    linseg 2*w3 3*h4 z # 6
+    linseg w4 3*h4 z   # 7
+    linseg w4 h4 z     # 8
+  skend
+
+  subtract
+
+# P
+elseif char eq $P
+
+  skbeg 0.0 0.0 z    # P (outer)
+    linseg w4 0.0 z  # 1
+    linseg w4 2*h5 z # 2
+    linseg w 2*h5 z  # 3
+    linseg w h z     # 4
+    linseg 0.0 h z   # 5
+    linseg 0.0 0.0 z # 6
+  skend
+
+  # this makes no sense, for some reason for P to show up as red, I have to set
+  # the _color attribute instead of the _bcolor attribute like all the other
+  # more complex shapes.
+  attribute _color $red
+
+  skbeg w4 3*h5 z      # P (inner)
+    linseg 2*w3 3*h5 z # 7
+    linseg 2*w3 4*h5 z # 8
+    linseg w4 4*h5 z   # 9
+    linseg w4 3*h5 z   # 10
+  skend
+
+  subtract
+
+# Q
+elseif char eq $Q
+
+  skbeg 0.0 0.0 z    # Q (outer)
+    linseg w 0.0 z   # 1
+    linseg w h z     # 2
+    linseg 0.0 h z   # 3
+    linseg 0.0 0.0 z # 4
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w4 h4 z        # Q (inner)
+    linseg 2*w3 h4 z   # 5
+    linseg w2 2*h5 z   # 6
+    linseg 2*w3 2*h5 z # 7
+    linseg 2*w3 3*h4 z # 8
+    linseg w4 3*h4 z   # 9
+    linseg w4 h4 z     # 10
+  skend
+
+  subtract
+
+# R
+elseif char eq $R
+
+  skbeg 0.0 0.0 z      # R
+    linseg w4 0.0 z    # 1
+    linseg w4 2*h5 z   # 2
+    linseg 2*w3 0.0 z  # 3
+    linseg w 0.0 z     # 4
+    linseg 2*w3 2*h5 z # 5
+    linseg w 2*h5 z    # 6
+    linseg w h z       # 7
+    linseg 0.0 h z     # 8
+    linseg 0.0 0.0 z   # 9
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w4 3*h5 z      # R
+    linseg 2*w3 3*h5 z # 10
+    linseg 2*w3 4*h5 z # 11
+    linseg w4 4*h5 z   # 12
+    linseg w4 3*h5 z   # 13
+  skend
+
+  subtract
+
+# S
+elseif char eq $S
+
+  skbeg 0.0 0.0 z      # S
+    linseg w 0.0 z     # 1
+    linseg w h4 z      # 2
+    linseg w3 4*h5 z   # 3
+    linseg 2*w3 4*h5 z # 4
+    linseg 2*w3 2*h3 z # 5
+    linseg w 2*h3 z    # 6
+    linseg w h z       # 7
+    linseg 0.0 h z     # 8
+    linseg 0.0 3*h4 z  # 9
+    linseg 2*w3 h5 z   # 10
+    linseg w3 h5 z     # 11
+    linseg w3 h3 z     # 12
+    linseg 0.0 h3 z    # 13
+    linseg 0.0 0.0 z   # 14
+  skend
+
+  attribute _color $red
+
+# T
+elseif char eq $T
+
+  skbeg w3 0.0 z       # T
+    linseg 2*w3 0.0 z  # 1
+    linseg 2*w3 4*h5 z # 2
+    linseg w 4*h5 z    # 3
+    linseg w h z       # 4
+    linseg 0.0 h z     # 5
+    linseg 0.0 4*h5 z  # 6
+    linseg w3 4*h5 z   # 7
+    linseg w3 0.0 z    # 8
+  skend
+
+  attribute _color $red
+
+# U
+elseif char eq $U
+
+  skbeg 0.0 0.0 z    # U
+    linseg w 0.0 z   # 1
+    linseg w h z     # 2
+    linseg 2*w3 h z  # 3
+    linseg 2*w3 h5 z # 4
+    linseg w3 h5 z   # 5
+    linseg w3 h z    # 6
+    linseg 0.0 h z   # 7
+    linseg 0.0 0.0 z # 8
+  skend
+
+  attribute _color $red
+
+# V
+elseif char eq $V
+
+  skbeg w3 0.0 z      # V
+    linseg 2*w3 0.0 z # 1
+    linseg w h z      # 2
+    linseg 2*w3 h z   # 3
+    linseg w2 h3 z    # 4
+    linseg w3 h z     # 5
+    linseg 0.0 h z    # 6
+    linseg w3 0.0 z   # 7
+  skend
+
+  attribute _color $red
+
+# W
+elseif char eq $W
+
+  #skbeg w3/4 0.0 z        # W (fat) slightly slanted version
+  #  linseg 5*w3/4 0.0 z   # 1
+  #  linseg w2 h3 z        # 2
+  #  linseg w-5*w3/4 0.0 z # 3
+  #  linseg w-w3/4 0.0 z   # 4
+  #  linseg w h z          # 5
+  #  linseg w-w3 h z       # 6
+  #  linseg w-w3 h3 z      # 7
+  #  linseg w2 2*h3 z      # 8
+  #  linseg w3 h3 z        # 9
+  #  linseg w3 h z         # 10
+  #  linseg 0.0 h z        # 11
+  #  linseg w3/4 0.0 z     # 12
+  #skend
+
+  skbeg 0.0 0.0 z     # W (fat) straighter version
+    linseg w3 0.0 z   # 1
+    linseg w2 h3 z    # 2
+    linseg 2*w3 0.0 z # 3
+    linseg w 0.0 z    # 4
+    linseg w h z      # 5
+    linseg 2*w3 h z   # 6
+    linseg 2*w3 h3 z  # 7
+    linseg w2 2*h3 z  # 8
+    linseg w3 h3 z    # 9
+    linseg w3 h z     # 10
+    linseg 0.0 h z    # 11
+    linseg 0.0 0.0 z  # 12
+  skend
+
+  attribute _color $red
+
+# X
+elseif char eq $X
+
+  skbeg 0.0 0.0 z     # X
+    linseg w3 0.0 z   # 1
+    linseg w2 2*h5 z  # 2
+    linseg 2*w3 0.0 z # 3
+    linseg w 0.0 z    # 4
+    linseg w2+w3 h2 z # 5
+    linseg w h z      # 6
+    linseg 2*w3 h z   # 7
+    linseg w2 3*h5 z  # 8
+    linseg w3 h z     # 9
+    linseg 0.0 h z    # 10
+    linseg w2-w3 h2 z # 11
+    linseg 0.0 0.0 z  # 12
+  skend
+
+  attribute _color $red
+
+# Y
+elseif char eq $Y
+
+  skbeg w3 0.0 z       # Y
+    linseg 2*w3 0.0 z  # 1
+    linseg 2*w3 2*h5 z # 2
+    linseg w h z       # 3
+    linseg 2*w3 h z    # 4
+    linseg w2 3*h5 z   # 5
+    linseg w3 h z      # 6
+    linseg 0.0 h z     # 7
+    linseg w3 2*h5 z   # 8
+    linseg w3 0.0 z    # 9
+  skend
+
+  attribute _color $red
+
+# Z
+elseif char eq $Z
+
+  skbeg 0.0 0.0 z      # Z
+    linseg w 0.0 z     # 1
+    linseg w h5 z      # 2
+    linseg w3 h5 z     # 3
+    linseg w 4*h5 z    # 4
+    linseg w h z       # 5
+    linseg 0.0 h z     # 6
+    linseg 0.0 4*h5 z  # 7
+    linseg 2*w3 4*h5 z # 8
+    linseg 0.0 h5 z    # 9
+    linseg 0.0 0.0 z   # 10
+  skend
+
+  attribute _color $red
+
+# 1
+elseif char eq $1
+
+  skbeg 0.0 0.0 z     # One (1)
+    linseg w 0.0 z    # 1
+    linseg w h5 z     # 2
+    linseg 2*w3 h5 z  # 3
+    linseg 2*w3 h z   # 4
+    linseg 0.0 h z    # 5
+    linseg 0.0 4*h5 z # 6
+    linseg w3 4*h5 z  # 7
+    linseg w3 h5 z    # 8
+    linseg 0.0 h5 z   # 9
+    linseg 0.0 0.0 z  # 10
+  skend
+
+  attribute _color $red
+
+# 2
+elseif char eq $2
+
+  skbeg 0.0 0.0 z      # Two (2)
+    linseg w 0.0 z     # 1
+    linseg w h5 z      # 2
+    linseg w3 h5 z     # 3
+    linseg w 4*h5 z    # 4
+    linseg w h z       # 5
+    linseg 0.0 h z     # 6
+    linseg 0.0 3*h4 z  # 7
+    linseg w3 3*h4 z   # 8
+    linseg w3 4*h5 z   # 9
+    linseg 2*w3 4*h5 z # 10
+    linseg 0.0 h5 z    # 11
+    linseg 0.0 0.0 z   # 12
+  skend
+
+  attribute _color $red
+
+# 3
+elseif char eq $3
+
+  skbeg 0.0 0.0 z      # Three (3)
+    linseg w 0.0 z     # 1
+    linseg w h z       # 2
+    linseg 0.0 h z     # 3
+    linseg 0.0 4*h5 z  # 4
+    linseg 2*w3 4*h5 z # 5
+    linseg 2*w3 3*h5 z # 6
+    linseg w3 3*h5 z   # 7
+    linseg w3 2*h5 z   # 8
+    linseg 2*w3 2*h5 z # 9
+    linseg 2*w3 h5 z   # 10
+    linseg 0.0 h5 z    # 11
+    linseg 0.0 0.0 z   # 12
+  skend
+
+  attribute _color $red
+
+# 4
+elseif char eq $4
+
+  skbeg 2*w3 0.0 z     # Four (4)
+    linseg w 0.0 z     # 1
+    linseg w h z       # 2
+    linseg 2*w3 h z    # 3
+    linseg 2*w3 3*h5 z # 4
+    linseg w3 3*h5 z   # 5
+    linseg w3 h z      # 6
+    linseg 0.0 h z     # 7
+    linseg 0.0 2*h5 z  # 8
+    linseg 2*w3 2*h5 z # 9
+    linseg 2*w3 0.0 z  # 10
+  skend
+
+  attribute _color $red
+
+# 5
+elseif char eq $5
+
+  skbeg 0.0 0.0 z      # Five (5)
+    linseg w 0.0 z     # 1
+    linseg w 3*h5 z    # 2
+    linseg w3 3*h5 z   # 3
+    linseg w3 4*h5 z   # 4
+    linseg 2*w3 4*h5 z # 5
+    linseg 2*w3 3*h4 z # 6
+    linseg w 3*h4 z    # 7
+    linseg w h z       # 8
+    linseg 0.0 h z     # 9
+    linseg 0.0 2*h5 z  # 10
+    linseg 2*w3 2*h5 z # 11
+    linseg 2*w3 h5 z   # 12
+    linseg 0.0 h5 z    # 13
+    linseg 0.0 0.0 z   # 14
+  skend
+
+  attribute _color $red
+
+# 6
+elseif char eq $6
+
+  skbeg 0.0 0.0 z      # Six (6)
+    linseg w 0.0 z     # 1
+    linseg w 3*h5 z    # 2
+    linseg w3 3*h5 z   # 3
+    linseg w3 4*h5 z   # 4
+    linseg w 4*h5 z    # 5
+    linseg w h z       # 6
+    linseg 0.0 h z     # 7
+    linseg 0.0 0.0 z   # 8
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w3 h5 z        # Six (inner) (6)
+    linseg 2*w3 h5 z   # 9
+    linseg 2*w3 2*h5 z # 10
+    linseg w3 2*h5 z   # 11
+    linseg w3 h5 z     # 12
+  skend
+
+  subtract
+
+# 7
+elseif char eq $7
+
+  skbeg 0.0 0.0 z      # Seven (7)
+    linseg w3 0.0 z    # 1
+    linseg w 4*h5 z    # 2
+    linseg w h z       # 3
+    linseg 0.0 h z     # 4
+    linseg 0.0 4*h5 z  # 5
+    linseg 2*w3 4*h5 z # 6
+    linseg 0.0 0.0 z   # 7
+  skend
+
+  attribute _color $red
+
+# 8
+elseif char eq $8
+
+  skbeg 0.0 0.0 z    # Eight (outer) (8)
+    linseg w 0.0 z   # 1
+    linseg w h z     # 2
+    linseg 0.0 h z   # 3
+    linseg 0.0 0.0 z # 4
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w3 h5 z        # Eight (inner 1) (8)
+    linseg 2*w3 h5 z   # 5
+    linseg 2*w3 2*h5 z # 6
+    linseg w3 2*h5 z   # 7
+    linseg w3 h5 z     # 8
+  skend
+
+  subtract
+
+  skbeg w3 3*h5 z      # Eight (inner 2) (8)
+    linseg 2*w3 3*h5 z # 9
+    linseg 2*w3 4*h5 z # 10
+    linseg w3 4*h5 z   # 11
+    linseg w3 3*h5 z   # 12
+  skend
+
+  subtract
+
+# 9
+elseif char eq $9
+
+  skbeg 2*w3 0.0 z     # Nine (inner) (9)
+    linseg w 0.0 z     # 1
+    linseg w h z       # 2
+    linseg 0.0 h z     # 3
+    linseg 0.0 2*h5 z  # 4
+    linseg 2*w3 2*h5 z # 5
+    linseg 2*w3 0.0 z  # 6
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w3 3*h5 z      # Nine (inner) (9)
+    linseg 2*w3 3*h5 z # 7
+    linseg 2*w3 4*h5 z # 8
+    linseg w3 4*h5 z   # 9
+    linseg w3 3*h5 z   # 10
+  skend
+
+  subtract
+
+# 0
+elseif char eq $0
+
+  skbeg 0.0 0.0 z    # Zero (outer) (0)
+    linseg w 0.0 z   # 1
+    linseg w h z     # 2
+    linseg 0.0 h z   # 3
+    linseg 0.0 0.0 z # 4
+  skend
+
+  attribute _bcolor $red
+
+  skbeg w3 h5 z        # Zero (inner) (0)
+    linseg 2*w3 h5 z   # 5
+    linseg 2*w3 4*h5 z # 6
+    linseg w3 4*h5 z   # 7
+    linseg w3 h5 z     # 8
+  skend
+
+  subtract
+
+# Punctuation
+
+# Period (.)
+elseif char eq $.
+
+  skbeg 0.0 0.0 z    # Period (.)
+    linseg w5 0.0 z  # 1
+    linseg w5 w5 z   # 2
+    linseg 0.0 w5 z  # 3
+    linseg 0.0 0.0 z # 4
+  skend
+
+  attribute _color $red
+
+# Comma (,)
+# I do not know how to do this, it may not be possible.
+#elseif char eq $',
+#
+#  skbeg 0.0 0.0 z    # Comma (,)
+#    linseg w5 0.0 z  # 1
+#    linseg w5 w5 z   # 2
+#    linseg 0.0 w5 z  # 3
+#    linseg 0.0 0.0 z # 4
+#  skend
+#
+#    attribute _color $red
+
+else
+  message ERROR:^input^value^+char+$^not^recognized... ^
+
+endif
